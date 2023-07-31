@@ -80,5 +80,13 @@ export default defineConfig({
 				assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
 			}
 		}
+	},
+	// 设置全局使用 bem 架构
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `@import "./src/styles/bem.scss";`
+			}
+		}
 	}
 })

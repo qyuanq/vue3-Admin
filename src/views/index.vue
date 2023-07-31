@@ -4,7 +4,7 @@
 			<el-icon :size="20" color="#000">
 				<icon-ep-copy-document></icon-ep-copy-document>
 			</el-icon>
-			{{ count }}
+			<span class="wl-count">{{ count }}</span>
 		</el-button>
 	</div>
 </template>
@@ -19,4 +19,8 @@ const handleMessage = () => {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@include b(count) {
+	color: red;
+}
+</style>
