@@ -17,7 +17,9 @@ export default defineConfig({
 		}
 	},
 	server: {
-		port: 8080, //启动端口
+		host: true,
+		open: true,
+		port: 8080,
 		proxy: {
 			'/api': {
 				target: 'your https address',

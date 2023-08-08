@@ -1,21 +1,16 @@
 // bem架构 由 b：block（-）、e：element（__）、m：modifier（--）组成
 // 参考elementUI的 块级类名：el-input、元素类名：el-input__inner、标识类名：el-button--success
 
-// !default 表示这个变量如果没有赋过别的值，默认为 common
-$namespace: "wl" !default; // 创建一个命名空间，用于定义规范类名的开头
+// !default 表示这个变量如果没有赋过别的值，默认为 urp
+$namespace: 'urp' !default; // 创建一个命名空间，用于定义规范类名的开头
 
-$block-sel: "-" !default; // 创建一个连接，用于连接块名
+$block-sel: '-' !default; // 创建一个连接，用于连接块名
 
-$element-sel: "__" !default; // 创建一个连接，用于连接元素名
+$element-sel: '__' !default; // 创建一个连接，用于连接元素名
 
-$modify-sel: "--" !default; // 创建一个连接，用于连接标识名
+$modify-sel: '--' !default; // 创建一个连接，用于连接标识名
 
-@mixin bfc() {
-	height: 100%;
-	overflow: hidden;
-}
-
-// 创建一个定义 b 的混入，可以生成例如  .wl-block 的样式
+// 创建一个定义 b 的混入，可以生成例如  .urp-block 的样式
 @mixin b($bn) {
 	$name: $namespace + $block-sel + $bn;
 	.#{$name} {
@@ -23,12 +18,12 @@ $modify-sel: "--" !default; // 创建一个连接，用于连接标识名
 	}
 }
 
-// 创建一个定义 e 的混入，可以生成例如  .wl-block__inner 的样式
+// 创建一个定义 e 的混入，可以生成例如  .urp-block__inner 的样式
 @mixin e($en) {
-	// 获取父级的类名 这里获取的是 .wl-block
+	// 获取父级的类名 这里获取的是 .urp-block
 	$selector: &;
 
-	// @at-root 可以让以下类名的样式跳出父级包裹，例如 .wl-block .wl-block__inner{} 变成单独一个 .wl-block__inner{}
+	// @at-root 可以让以下类名的样式跳出父级包裹，例如 .urp-block .urp-block__inner{} 变成单独一个 .urp-block__inner{}
 	@at-root {
 		#{$selector + $element-sel + $en} {
 			@content;
@@ -36,7 +31,7 @@ $modify-sel: "--" !default; // 创建一个连接，用于连接标识名
 	}
 }
 
-// 创建一个定义 m 的混入，可以生成例如   .wl-block--primary 的样式
+// 创建一个定义 m 的混入，可以生成例如   .urp-block--primary 的样式
 @mixin m($mn) {
 	$selector: &;
 	@at-root {
