@@ -22,10 +22,32 @@ module.exports = {
 		{ value: 'build', name: 'build:    打包' }
 	],
 
+	scopes: [
+		['components', '组件相关'],
+		['hooks', 'hook 相关'],
+		['utils', 'utils 相关'],
+		['element-ui', '对 element-ui 的调整'],
+		['styles', '样式相关'],
+		['deps', '项目依赖'],
+		['auth', '对 auth 修改'],
+		['other', '其他修改'],
+		[
+			// 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
+			'custom',
+			'以上都不是？我要自定义'
+		]
+	].map(([value, description]) => {
+		return {
+			value,
+			name: `${value.padEnd(30)} (${description})`
+		}
+	}),
+
 	messages: {
 		type: '请选择提交类型:',
-		scope: '选择一个 scope(可选）:',
-		subject: '请简要描述提交 message (必填):\n',
+		scope: '\n选择一个 scope(可选）:',
+		customScope: '请输入自定义的 scope:',
+		subject: '请简要描述提交 message (必填):',
 		body: '请输入详细描述(可选):',
 		footer: '请输入要关闭的issue(可选):',
 		confirmCommit: '确认使用以上信息提交？(y/n/e/h)'
