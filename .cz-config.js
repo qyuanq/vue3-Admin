@@ -31,15 +31,11 @@ module.exports = {
 		['deps', '项目依赖'],
 		['auth', '对 auth 修改'],
 		['other', '其他修改'],
-		[
-			// 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
-			'custom',
-			'以上都不是？我要自定义'
-		]
-	].map(([value, description]) => {
+		// 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
+		['custom', '以上都不是？我要自定义']
+	].map(([value]) => {
 		return {
-			value,
-			name: `${value.padEnd(30)} (${description})`
+			name: value
 		}
 	}),
 
@@ -52,7 +48,7 @@ module.exports = {
 		footer: '请输入要关闭的issue(可选):',
 		confirmCommit: '确认使用以上信息提交？(y/n/e/h)'
 	},
-	// allowCustomScopes: true,
+	allowCustomScopes: true,
 	skipQuestions: ['body', 'footer'],
 	subjectLimit: 72
 }
